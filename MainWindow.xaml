@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EstudiantePrestamoReportes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Registros" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/registro.png">
     <Grid>
-
+        <Menu Height="20" VerticalAlignment="Top">
+            <MenuItem Header="Registros">
+                <MenuItem Name="EstudianteMenu" Header="Estudiantes" Click="EstudianteMenu_Click"/>
+                <MenuItem Name="PrestamoMenu" Header="Prestamos" Click="PrestamoMenu_Click"/>
+            </MenuItem>
+           
+        </Menu>
     </Grid>
 </Window>

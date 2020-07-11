@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EstudiantePrestamoReportes.UI.Registros.rEstudiante;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace EstudiantePrestamoReportes
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void EstudianteMenu_Click(object sender, RoutedEventArgs e)
+        {
+            rEstudiante rEstudiante = new rEstudiante();
+            rEstudiante.Show();
+        }
+
+        private void PrestamoMenu_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

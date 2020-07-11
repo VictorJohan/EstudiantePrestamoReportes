@@ -37,6 +37,9 @@ namespace EstudiantePrestamoReportes.Migrations
                     b.Property<string>("TipoEvaluacion")
                         .HasColumnType("TEXT");
 
+                    b.Property<float>("Valor")
+                        .HasColumnType("REAL");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Matricula");

@@ -48,6 +48,7 @@ namespace EstudiantePrestamoReportes.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Calificacion = table.Column<float>(nullable: false),
+                    Valor = table.Column<float>(nullable: false),
                     TipoEvaluacion = table.Column<string>(nullable: true),
                     FechaEvaluacion = table.Column<DateTime>(nullable: false),
                     Observacion = table.Column<string>(nullable: true),

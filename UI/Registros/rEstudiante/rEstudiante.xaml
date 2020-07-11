@@ -1,0 +1,132 @@
+﻿<Window x:Class="EstudiantePrestamoReportes.UI.Registros.rEstudiante.rEstudiante"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EstudiantePrestamoReportes.UI.Registros.rEstudiante"
+        mc:Ignorable="d"
+        Title="Registro Estudiante" Height="450" Width="904" WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanMinimize" Icon="/Resources/persona.png">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+            <Label Content="Matricula" FontSize="11"/>
+            <!--TextBoxMatricula y Boton Buscar en el StackPanel-->
+            <StackPanel Orientation="Horizontal">
+                <!--TextBox-->
+                <TextBox Name="MatriculaTextBox" Height="20" Text="{Binding Matricula}" Width="789" HorizontalAlignment="Left" Margin="5,0"/>
+                <!--Boton Buscar-->
+                <Button Name="BuscarButton" Width="60" Height="20" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/search.png" />
+                        <Label Content="Buscar" Padding="-1" Margin="4,0"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <!--Nombres-->
+            <Label Content="Nombre y Apellido" FontSize="11"/>
+            <TextBox Name="NombresTextBox" Height="20" Width="854" Text="{Binding Nombres}" HorizontalAlignment="Left" Margin="5,0"/>
+
+            <!--Fecha Nacimiento-->
+            <Label Content="Fecha de Nacimiento" FontSize="11"/>
+            <DatePicker Name="FechaNacimientoDatePicker" Width="854" SelectedDate="{Binding FechaNacimiento}"  HorizontalAlignment="Left" Margin="5,0"/>
+
+            <GroupBox Header="Estudiantes Detalle" HorizontalAlignment="Left" BorderBrush="Black" Margin="0,9,0,0" Width="860">
+
+                <StackPanel Width="856" HorizontalAlignment="Left">
+                    <!--Labels-->
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Calificación" FontSize="11"/>
+                        <Label Content="Valor" FontSize="11"/>
+                        <Label Content="Tipo de Evalución" FontSize="11" Margin="32,0,0,0" />
+                        <Label Content="Fecha de Evalución" FontSize="11" Margin="56,0,0,0"/>
+                        <Label Content="Observación" FontSize="11" Margin="48,0,0,0"/>
+                    </StackPanel>
+
+                    <!--TextBoxs y Botones-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Name="CalificacionTextBox" Width="55" Height="20" HorizontalAlignment="Left" Margin="5,0"/>
+                        <TextBox Name="ValorTextBox" Width="55" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0"/>
+                        <ComboBox Name="TipoEvaluacion" Width="140" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0"/>
+                        <DatePicker Name="FechaEvaluacion" Width="140" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0" Padding="-1" />
+                        <TextBox Name="ObservacionTextBox" Width="242" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0" />
+                        <!--Botones(Agregar\Remover)-->
+                        <Button Name="AgregarButton" Width="77" Height="20" Click="AgregarButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/agregar.png" />
+                                <Label Content="Agregar" Padding="-1" Margin="4,0"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Name="RemoverButton" Width="77" Height="20" Click="RemoverButton_Click" Margin="5,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/remover.png" Margin="5,0,0,0" />
+                                <Label Content="Remover" Padding="-1" Margin="4,0"/>
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>
+
+                    <!--DataGrid-->
+                    <DataGrid Name="DetalleDataGrid" Height="100" AutoGenerateColumns="False" ItemsSource="{Binding estudianteDetalles}" Width="840" Margin="5,4,5,0" HorizontalAlignment="Left">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Calificación" Binding="{Binding Calificacion}"/>
+                            <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                            <DataGridTextColumn Header="Tipo Evaluación" Binding="{Binding TipoEvaluacion}"/>
+                            <DataGridTextColumn Header="Fecha Evaluación" Binding="{Binding FechaEvaluacion}"/>
+                            <DataGridTextColumn Header="Observación" Binding="{Binding Observacion}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!--Estado-->
+                    <StackPanel Orientation="Horizontal" Width="496" HorizontalAlignment="Left">
+                        <!--Nota Maxima-->
+                        <Label Content="Maxima: " FontSize="11"/>
+                        <TextBox Name="MaximaTextBox" Height="20" Width="60" Text="{Binding CalifMax}" IsReadOnly="True"/>
+                        
+                        <!--Nota Minima-->
+                        <Label Content="Minima: " FontSize="11"/>
+                        <TextBox Name="MinimaTextBox" Height="20" Width="60" Text="{Binding CalifMin}" IsReadOnly="True"/>
+                        
+                        <!--Nota Promedio-->
+                        <Label Content="Promedio: " FontSize="11"/>
+                        <TextBox Name="PromedioTextBox" Height="20" Width="60" Text="{Binding CalifPromedio}" IsReadOnly="True"/>
+
+                        <!--Total Puntos-->
+                        <Label Content="Total Puntos: " FontSize="11"/>
+                        <TextBox Name="TotalPuntosTextBox" Height="20" Width="60" Text="{Binding TotalPts}" IsReadOnly="True"/>
+
+                    </StackPanel>
+                    
+                </StackPanel>
+
+            </GroupBox>
+
+            <!--Barra de botones-->
+            <StackPanel Orientation="Horizontal" Width="210" Margin="0,20,0,0">
+                <Button Name="NuevoButton" Width="60" Height="20" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/newFile.png" />
+                        <Label Content="Nuevo" Padding="-1" Margin="4,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Name="GuardarButton" Width="67" Height="20" Margin="5,0,0,0" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/save.png" />
+                        <Label Content="Guardar" Padding="-1" Margin="4,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Name="EliminarButton" Width="67" Height="20" Margin="5,0,0,0" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/delete.png" />
+                        <Label Content="Eliminar" Padding="-1" Margin="4,0"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>

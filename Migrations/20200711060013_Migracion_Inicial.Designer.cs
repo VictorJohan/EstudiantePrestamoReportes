@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstudiantePrestamoReportes.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200711034102_Migracion_Inicial")]
+    [Migration("20200711060013_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,9 @@ namespace EstudiantePrestamoReportes.Migrations
 
                     b.Property<string>("TipoEvaluacion")
                         .HasColumnType("TEXT");
+
+                    b.Property<float>("Valor")
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
