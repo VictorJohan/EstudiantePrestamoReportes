@@ -9,7 +9,6 @@ namespace EstudiantePrestamoReportes.Entidades
     {
         [Key]
         public int IdPrestamo { get; set; }
-        public int IdPersona { get; set; }
         public double Monto { get; set; }
         public string ConceptoPrestamo { get; set; }
         public DateTime FechaPrestamo { get; set; } = DateTime.Now;

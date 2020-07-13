@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstudiantePrestamoReportes.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200713022631_Migracion_Inicial")]
+    [Migration("20200713035659_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,9 +89,6 @@ namespace EstudiantePrestamoReportes.Migrations
 
                     b.Property<DateTime>("FechaPrestamo")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("IdPersona")
-                        .HasColumnType("INTEGER");
 
                     b.Property<double>("Monto")
                         .HasColumnType("REAL");

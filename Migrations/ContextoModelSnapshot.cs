@@ -88,9 +88,6 @@ namespace EstudiantePrestamoReportes.Migrations
                     b.Property<DateTime>("FechaPrestamo")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("IdPersona")
-                        .HasColumnType("INTEGER");
-
                     b.Property<double>("Monto")
                         .HasColumnType("REAL");
 

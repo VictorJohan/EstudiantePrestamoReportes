@@ -31,7 +31,6 @@ namespace EstudiantePrestamoReportes.Migrations
                 {
                     IdPrestamo = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    IdPersona = table.Column<int>(nullable: false),
                     Monto = table.Column<double>(nullable: false),
                     ConceptoPrestamo = table.Column<string>(nullable: true),
                     FechaPrestamo = table.Column<DateTime>(nullable: false)

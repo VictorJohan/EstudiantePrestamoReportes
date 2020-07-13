@@ -17,9 +17,7 @@ namespace EstudiantePrestamoReportes.BLL
 
             try
             {
-                encontrado = contexto.Prestamos.Any(e => e.IdPersona == id);
-
-
+                encontrado = contexto.Prestamos.Any(e => e.IdPrestamo == id);
             }
             catch (Exception)
             {

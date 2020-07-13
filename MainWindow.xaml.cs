@@ -1,4 +1,5 @@
 ﻿using EstudiantePrestamoReportes.UI.Registros.rEstudiante;
+using EstudiantePrestamoReportes.UI.Registros.rPrestamo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,8 @@ namespace EstudiantePrestamoReportes
 
         private void PrestamoMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            rPrestamo rPrestamo = new rPrestamo();
+            rPrestamo.Show();
         }
     }
 }
