@@ -98,7 +98,8 @@ namespace EstudiantePrestamoReportes.BLL
 
             try
             {
-                estudiante = contexto.Estudiantes.Find(matricula);
+                estudiante = contexto.Estudiantes.Include(e => e.estudianteDetalles).
+                    Where(d => d.Matricula == matricula).SingleOrDefault();
             }
             catch (Exception)
             {
@@ -120,8 +121,8 @@ namespace EstudiantePrestamoReportes.BLL
 
             try
             {
-                var encontrado = contexto.Estudiantes.Find(matricula);
-                contexto.Entry(encontrado).State = EntityState.Deleted;
+                var eliminar = contexto.Estudiantes.Find(matricula);
+                contexto.Entry(eliminar).State = EntityState.Deleted;
                 ok = contexto.SaveChanges() > 0;
             }
             catch (Exception)

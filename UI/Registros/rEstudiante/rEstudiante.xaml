@@ -47,7 +47,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBox Name="CalificacionTextBox" Width="55" Height="20" HorizontalAlignment="Left" Margin="5,0"/>
                         <TextBox Name="ValorTextBox" Width="55" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0"/>
-                        <ComboBox Name="TipoEvaluacion" Width="140" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0"/>
+                        <ComboBox Name="TipoEvaluacionComboBox" Width="140" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0"/>
                         <DatePicker Name="FechaEvaluacion" Width="140" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0" Padding="-1" />
                         <TextBox Name="ObservacionTextBox" Width="242" Height="20" HorizontalAlignment="Left" Margin="6,0,5,0" />
                         <!--Botones(Agregar\Remover)-->
@@ -82,11 +82,11 @@
                     <StackPanel Orientation="Horizontal" Width="496" HorizontalAlignment="Left">
                         <!--Nota Maxima-->
                         <Label Content="Maxima: " FontSize="11"/>
-                        <TextBox Name="MaximaTextBox" Height="20" Width="60" Text="{Binding CalifMax}" IsReadOnly="True"/>
+                        <TextBox Name="MaximaTextBox" Height="20" Width="60" Text="{Binding CalifMax}" IsReadOnly="True" />
                         
                         <!--Nota Minima-->
                         <Label Content="Minima: " FontSize="11"/>
-                        <TextBox Name="MinimaTextBox" Height="20" Width="60" Text="{Binding CalifMin}" IsReadOnly="True"/>
+                        <TextBox Name="MinimaTextBox" Height="20" Width="60" Text="{Binding CalifMin}" IsReadOnly="True" />
                         
                         <!--Nota Promedio-->
                         <Label Content="Promedio: " FontSize="11"/>

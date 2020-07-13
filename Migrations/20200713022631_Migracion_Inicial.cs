@@ -47,12 +47,12 @@ namespace EstudiantePrestamoReportes.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Matricula = table.Column<int>(nullable: false),
                     Calificacion = table.Column<float>(nullable: false),
                     Valor = table.Column<float>(nullable: false),
                     TipoEvaluacion = table.Column<string>(nullable: true),
                     FechaEvaluacion = table.Column<DateTime>(nullable: false),
-                    Observacion = table.Column<string>(nullable: true),
-                    Matricula = table.Column<int>(nullable: true)
+                    Observacion = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,7 +62,7 @@ namespace EstudiantePrestamoReportes.Migrations
                         column: x => x.Matricula,
                         principalTable: "Estudiantes",
                         principalColumn: "Matricula",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

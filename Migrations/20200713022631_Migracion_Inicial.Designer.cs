@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstudiantePrestamoReportes.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200711060013_Migracion_Inicial")]
+    [Migration("20200713022631_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace EstudiantePrestamoReportes.Migrations
                     b.Property<DateTime>("FechaEvaluacion")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("Matricula")
+                    b.Property<int>("Matricula")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Observacion")
@@ -105,7 +105,9 @@ namespace EstudiantePrestamoReportes.Migrations
                 {
                     b.HasOne("EstudiantePrestamoReportes.Entidades.Estudiantes", null)
                         .WithMany("estudianteDetalles")
-                        .HasForeignKey("Matricula");
+                        .HasForeignKey("Matricula")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
